@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-pkill apache2
+# Fix for web_stack_debugging_2 1-run_nginx_as_nginx
+pkill -f apache2
+chmod 644 /etc/nginx/nginx.conf
 sed -i 's/80/8080 default_server/g' /etc/nginx/sites-available/default
 sed -i '1 i user nginx' /etc/nginx/nginx.conf
 sudo -u nginx service nginx restart
+
