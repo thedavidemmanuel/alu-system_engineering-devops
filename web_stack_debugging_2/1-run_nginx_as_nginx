@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # This script configures the container to run nginx as the nginx user
 
 # Install nginx
