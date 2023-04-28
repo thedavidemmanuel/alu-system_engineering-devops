@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script configures Nginx to run as the nginx user and listen on all active IPs on port 8080
+
+# Stop the currently running Nginx process
+service nginx stop
+
+# Set the user and group for Nginx
+sed -i 's/user www-data;/user nginx;\n\tworker_processes auto;\n/g' /etc/nginx/nginx.conf
+sed -i 's/# server_tokens off;/server_tokens off;\n\tlisten       8080;/g' /etc/nginx/nginx.conf
+
+# Start the Nginx process
+service nginx start
+
